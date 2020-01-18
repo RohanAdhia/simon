@@ -6,6 +6,15 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
+$("#start").click(function(){
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+    $("#start").css("display","none");
+  }
+});
+
 $(document).keypress(function() {
   if (!started) {
     $("#level-title").text("Level " + level);
@@ -37,7 +46,8 @@ function checkAnswer(currentLevel) {
     playSound("wrong");
     $("body").addClass("game-over");
     $("#level-title").text("Game Over, Press Any Key to Restart");
-
+    $("#start").text("Restart");
+    $("#start").css("display","inline-block");
     setTimeout(function() {
       $("body").removeClass("game-over");
     }, 200);
