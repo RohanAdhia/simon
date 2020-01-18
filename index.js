@@ -20,6 +20,7 @@ $(document).keypress(function() {
     $("#level-title").text("Level " + level);
     nextSequence();
     started = true;
+    $("#start").css("display","none");
   }
 });
 
